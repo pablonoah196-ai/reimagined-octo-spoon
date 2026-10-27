@@ -1,0 +1,19 @@
+{
+  "name": "ia-central-neural-command",
+  "version": "1.0.0",
+  "private": true,
+  "description": "IA CENTRAL - dashboard com Discord OAuth2, bot Discord e OpenAI",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "discord.js": "^14.19.3",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "openai": "^4.86.1"
+  }
+}
