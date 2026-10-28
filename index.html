@@ -1,39 +1,230 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#090411"><title>IA CENTRAL — NEURAL COMMAND</title>
-<link rel="stylesheet" href="/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b0f">
+<title>IMPERIAL BOT — Painel de Controle</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div class="app">
-  <aside class="sidebar">
-    <div class="brand"><div class="logo">✦</div><div><b>IA CENTRAL</b><small>NEURAL COMMAND</small></div></div>
-    <div class="nav-label">PLATAFORMA</div>
-    <button class="nav active" data-page="overview">▦ <span>Visão geral</span></button>
-    <button class="nav" data-page="chat">✧ <span>Conversar com IA</span></button>
-    <button class="nav" data-page="discord">◈ <span>Central Discord</span></button>
-    <button class="nav" data-page="news">◎ <span>Notícias do EB</span></button>
-    <button class="nav" data-page="settings">⚙ <span>Configurações</span></button>
-    <div class="side-bottom"><div class="status"><i></i> Sistema online</div><button id="login" class="login">Entrar com Discord</button><button id="logout" class="logout hidden">Sair da conta</button></div>
-  </aside>
-  <main>
-    <header><div><small>NEURAL COMMAND / <span id="crumb">VISÃO GERAL</span></small><h1 id="pageTitle">Visão geral</h1></div><div class="user" id="user">Não conectado</div></header>
-    <section id="overview" class="page">
-      <div class="hero"><div class="eyebrow">CENTRAL DE COMANDO INTELIGENTE</div><h2>O que vamos fazer <em>hoje?</em></h2><p>Converse com sua IA, pesquise informações e gerencie integrações autorizadas.</p><button class="primary" data-go="chat">Iniciar conversa ↗</button></div>
-      <div class="stats"><article><small>ASSISTENTE</small><b id="openaiStat">Verificando...</b><span>OpenAI API</span></article><article><small>DISCORD BOT</small><b id="botStat">Verificando...</b><span>Conexão do bot</span></article><article><small>OAUTH2</small><b id="oauthStat">Verificando...</b><span>Autorização Discord</span></article></div>
-      <div class="section-head"><h3>Acesso rápido</h3></div><div class="quick"><button data-go="chat">✧<b>Chat com IA</b><small>Assistente inteligente</small></button><button data-go="discord">◈<b>Administração</b><small>Ferramentas Discord</small></button><button data-go="news">◎<b>Notícias do EB</b><small>Fontes oficiais</small></button></div>
-      <p class="notice">As integrações só ficam operacionais depois que você configurar as credenciais no servidor. Esta aplicação não é afiliada nem representa oficialmente o Exército Brasileiro.</p>
+<aside class="sidebar">
+  <div class="brand"><div class="brand-mark">♛</div><div><b>IMPERIAL BOT</b><small>PAINEL DE CONTROLE</small></div></div>
+  <div class="nav-label">PLATAFORMA</div>
+  <button class="nav active" data-view="dashboard"><span class="ico">⌂</span><span>Visão geral</span></button>
+  <button class="nav" data-view="ai-chat"><span class="ico">✧</span><span>Conversar com IA</span></button>
+  <button class="nav" data-view="bot-chat"><span class="ico">♛</span><span>Conversar com o bot</span></button>
+  <button class="nav"><span class="ico">‹/›</span><span>Comandos</span></button>
+  <button class="nav"><span class="ico">♢</span><span>Moderação</span></button>
+  <button class="nav"><span class="ico">⚙</span><span>AutoMod</span></button>
+  <button class="nav"><span class="ico">♙</span><span>Boas-vindas</span></button>
+  <button class="nav"><span class="ico">▣</span><span>Tickets</span></button>
+  <button class="nav"><span class="ico">▤</span><span>Registros</span></button>
+  <div class="nav-sep"></div>
+  <div class="nav-label">SISTEMA</div>
+  <button class="nav"><span class="ico">↗</span><span>Integrações</span></button>
+  <button class="nav"><span class="ico">⚙</span><span>Configurações</span></button>
+  <div class="side-bottom">
+    <div class="online"><span class="dot"></span><strong>Sistema online</strong><small>Tudo funcionando corretamente.</small></div>
+    <button class="connect"><span class="avatar">♟</span><div>Conectar Discord<small>Faça login para gerenciar</small></div><span class="chev">›</span></button>
+  </div>
+</aside>
+
+<main>
+  <div id="dashboard-view" class="page-view">
+    <div class="topbar">
+      <div>♜ &nbsp; IMPERIAL BOT &nbsp; / &nbsp; VISÃO GERAL</div>
+      <div class="topright"><small>21 de abr. de 2025<br>14:32</small><span class="bell">♧</span><span class="profile">IB</span>⌄</div>
+    </div>
+    <div class="heading">
+      <h1>Visão geral</h1>
+      <p>Acompanhe o status do bot e gerencie os principais recursos do seu servidor.</p>
+    </div>
+
+    <section class="stats">
+      <div class="stat"><div class="stat-icon">☻</div><div><label>BOT DISCORD</label><strong>● &nbsp;Offline</strong><small>Conexão com o Discord</small></div></div>
+      <div class="stat"><div class="stat-icon">▣</div><div><label>SERVIDORES</label><strong>0</strong><small>Servidores conectados</small></div></div>
+      <div class="stat"><div class="stat-icon">♙</div><div><label>USUÁRIOS</label><strong>0</strong><small>Usuários no total</small></div></div>
+      <div class="stat"><div class="stat-icon">◷</div><div><label>LATÊNCIA</label><strong>-- ms</strong><small>Tempo de resposta</small></div></div>
     </section>
-    <section id="chat" class="page hidden">
-      <div class="chat-shell"><div class="chat-top"><div><b>✦ IA CENTRAL</b><small>Assistente conectado à OpenAI</small></div><span class="pill">● PRONTA</span></div>
-      <div id="messages" class="messages"><div class="welcome"><div class="biglogo">✦</div><h2>Como posso ajudar?</h2><p>Peça explicações, organização ou ações autorizadas no Discord.</p></div></div>
-      <form id="chatForm"><input id="message" autocomplete="off" placeholder="Digite sua mensagem para a IA CENTRAL..." maxlength="4000"><button class="send" type="submit">↑</button></form></div>
-    </section>
-    <section id="discord" class="page hidden"><div class="panel"><div class="eyebrow">INTEGRAÇÃO / DISCORD</div><h2>Central de administração</h2><p>Entre com Discord e configure o ID do servidor no arquivo .env. O bot precisa estar no servidor e ter as permissões necessárias.</p><div class="capabilities"><div><b>Moderação</b><span>Banir, expulsar e aplicar timeout por comando em linguagem natural.</span></div><div><b>Informações</b><span>Consultar nome, quantidade de membros e canais do servidor.</span></div><div><b>Tickets</b><span>Criar canal privado de suporte com permissões específicas.</span></div></div><button class="primary" id="discordLogin">Autorizar com Discord</button><p class="notice">Ações de moderação exigem login, permissões do seu cargo, permissões do bot e respeito à hierarquia de cargos. O bot não pode moderar o dono ou cargos acima dele.</p></div></section>
-    <section id="news" class="page hidden"><div class="panel"><div class="eyebrow">PESQUISA INSTITUCIONAL</div><h2>Notícias do Exército Brasileiro</h2><p>Abra as fontes institucionais para consultar notícias atuais. Esta versão não inventa manchetes nem datas.</p><div class="links"><a href="https://www.eb.mil.br/" target="_blank" rel="noopener">Portal oficial do Exército Brasileiro ↗</a><a href="https://www.gov.br/defesa/pt-br" target="_blank" rel="noopener">Ministério da Defesa ↗</a><a href="https://www.eb.mil.br/web/noticias" target="_blank" rel="noopener">Notícias do Exército ↗</a></div><p class="notice">Uma API/RSS de notícias pode ser conectada posteriormente para exibir manchetes, datas e fontes diretamente no painel.</p></div></section>
-    <section id="settings" class="page hidden"><div class="panel"><div class="eyebrow">PREFERÊNCIAS</div><h2>Configurações e integrações</h2><p>O estado abaixo é lido do backend. Segredos nunca são enviados ao navegador.</p><div id="settingsStatus" class="capabilities"></div><p class="notice">Edite o arquivo .env no servidor e reinicie a aplicação. Nunca compartilhe DISCORD_BOT_TOKEN, DISCORD_CLIENT_SECRET, OPENAI_API_KEY ou SESSION_SECRET.</p></div></section>
-  </main>
+
+    <div class="content">
+      <div class="leftcol">
+        <section class="hero">
+          <div class="hero-symbol">♛</div>
+          <div class="hero-copy">
+            <div class="eyebrow">IMPERIAL BOT</div>
+            <h2>Controle total do seu servidor.</h2>
+            <p>O Imperial Bot é um painel completo para gerenciar, moderar e personalizar seu servidor Discord com praticidade e segurança.</p>
+            <button class="primary">Configurar agora &nbsp; →</button>
+          </div>
+          <div class="hero-crown">♛</div>
+        </section>
+
+        <section class="panel">
+          <h3>Acesso rápido</h3>
+          <p class="sub">Gerencie os principais recursos do bot.</p>
+          <div class="quick-grid">
+            <button class="quick"><span class="quick-icon">‹/›</span><span><b>Comandos</b><small>Lista e configurações</small></span></button>
+            <button class="quick"><span class="quick-icon">♢</span><span><b>Moderação</b><small>Ferramentas administrativas</small></span></button>
+            <button class="quick"><span class="quick-icon">⚙</span><span><b>AutoMod</b><small>Filtros e proteção</small></span></button>
+            <button class="quick"><span class="quick-icon">♙</span><span><b>Boas-vindas</b><small>Mensagem automática</small></span></button>
+            <button class="quick"><span class="quick-icon">♢</span><span><b>Tickets</b><small>Sistema de atendimento</small></span></button>
+            <button class="quick"><span class="quick-icon">▤</span><span><b>Registros</b><small>Histórico de atividades</small></span></button>
+          </div>
+        </section>
+
+        <div class="bottom-grid">
+          <section class="panel">
+            <h3>Integrações</h3>
+            <p class="sub">Conecte suas contas e expanda as funcionalidades.</p>
+            <div class="integration-row">
+              <div class="integration">
+                <div class="integration-head"><span class="quick-icon">☻</span><div><b>Discord</b><small>Não conectado</small></div></div>
+                <button class="mini-btn">Conectar &nbsp; →</button>
+              </div>
+              <div class="integration">
+                <div class="integration-head"><span class="quick-icon">◎</span><div><b>OpenAI</b><small>Não configurado</small></div></div>
+                <button class="mini-btn">Configurar &nbsp; →</button>
+              </div>
+            </div>
+          </section>
+          <section class="panel">
+            <h3>Servidor</h3>
+            <p class="sub">Informações do seu servidor.</p>
+            <div class="server-empty">
+              <span style="font-size:25px">▣</span>
+              <strong>Nenhum servidor conectado</strong>
+              <small>Conecte seu bot a um servidor para ver as informações aqui.</small>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <aside class="rightcol">
+        <section class="panel">
+          <h3>Status dos módulos</h3>
+          <ul class="module-list">
+            <li><span class="ico">‹/›</span>Comandos <span class="active">Ativo</span></li>
+            <li><span class="ico">♢</span>Moderação <span class="active">Ativo</span></li>
+            <li><span class="ico">⚙</span>AutoMod <span class="active">Ativo</span></li>
+            <li><span class="ico">♙</span>Boas-vindas <span class="active">Ativo</span></li>
+            <li><span class="ico">▣</span>Tickets <span class="active">Ativo</span></li>
+            <li><span class="ico">▤</span>Registros <span class="active">Ativo</span></li>
+          </ul>
+        </section>
+
+        <section class="panel activity">
+          <div class="activity-head"><h3>Atividade recente</h3><a href="#">Ver todos →</a></div>
+          <div class="event"><span class="quick-icon">☻</span><div><b>Sistema iniciado</b><small>Painel carregado com sucesso</small></div><time>14:32</time></div>
+          <div class="event"><span class="quick-icon">♧</span><div><b>Tentativa de login</b><small>Aguardando autenticação do Discord</small></div><time>14:28</time></div>
+          <div class="event"><span class="quick-icon">◇</span><div><b>Conexão com OpenAI</b><small>Modo de segurança ativo</small></div><time>14:20</time></div>
+          <div class="event"><span class="quick-icon">⚙</span><div><b>Configurações atualizadas</b><small>Arquivo .env verificado</small></div><time>14:12</time></div>
+        </section>
+      </aside>
+    </div>
+
+    <footer>
+      <div><b>IMPERIAL BOT</b> v1.0.0</div>
+      <div>Disciplina &nbsp; • &nbsp; Organização &nbsp; • &nbsp; Resultados</div>
+    </footer>
+  </div>
+
+  <section id="ai-chat-view" class="chat-view" hidden>
+    <div class="topbar"><div>♜ &nbsp; IMPERIAL BOT &nbsp; / &nbsp; INTELIGÊNCIA ARTIFICIAL</div><div class="topright"><span class="profile">IB</span></div></div>
+    <div class="heading"><h1>Conversar com IA</h1><p>Converse com o assistente de inteligência artificial.</p></div>
+    <div class="chat-panel">
+      <div class="chat-heading"><span class="chat-avatar">✧</span><div><b>Assistente IA</b><small>Interface de demonstração</small></div><span class="chat-status">● PRONTA</span></div>
+      <div class="chat-messages" id="ai-messages"><div class="message bot-message">Olá! Sou a IA do Imperial Bot. Como posso ajudar?</div></div>
+      <form class="chat-form" data-chat="ai">
+        <input name="message" placeholder="Digite sua mensagem para a IA..." maxlength="1500" autocomplete="off" required>
+        <button type="submit">Enviar ↑</button>
+      </form>
+      <p class="demo-note">Demonstração visual: conecte o backend da OpenAI para receber respostas reais.</p>
+    </div>
+  </section>
+
+  <section id="bot-chat-view" class="chat-view" hidden>
+    <div class="topbar"><div>♜ &nbsp; IMPERIAL BOT &nbsp; / &nbsp; CHAT DO BOT</div><div class="topright"><span class="profile">IB</span></div></div>
+    <div class="heading"><h1>Conversar com o bot</h1><p>Envie mensagens para testar a experiência do Imperial Bot.</p></div>
+    <div class="chat-panel">
+      <div class="chat-heading"><span class="chat-avatar">♛</span><div><b>IMPERIAL BOT</b><small>Assistente do servidor • demonstração</small></div><span class="chat-status">● ONLINE</span></div>
+      <div class="chat-messages" id="bot-messages"><div class="message bot-message">Saudações! Eu sou o Imperial Bot. O que deseja fazer?</div></div>
+      <form class="chat-form" data-chat="bot">
+        <input name="message" placeholder="Converse com o Imperial Bot..." maxlength="1500" autocomplete="off" required>
+        <button type="submit">Enviar ↑</button>
+      </form>
+      <p class="demo-note">Demonstração visual: conecte o bot Discord e o backend para habilitar a conversa real.</p>
+    </div>
+  </section>
+</main>
 </div>
-<script src="/app.js"></script>
-</body></html>
+
+<script>
+(() => {
+  const navButtons = [...document.querySelectorAll('.nav[data-view]')];
+
+  const views = {
+    dashboard: document.getElementById('dashboard-view'),
+    'ai-chat': document.getElementById('ai-chat-view'),
+    'bot-chat': document.getElementById('bot-chat-view')
+  };
+
+  navButtons.forEach(button => button.addEventListener('click', () => {
+    const target = button.dataset.view;
+
+    Object.entries(views).forEach(([key, view]) => {
+      view.hidden = key !== target;
+    });
+
+    navButtons.forEach(item => {
+      item.classList.toggle('active', item === button);
+    });
+
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }));
+
+  document.querySelectorAll('.chat-form').forEach(form => {
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+
+      const input = form.elements.message;
+      const text = input.value.trim();
+
+      if (!text) return;
+
+      const list = document.getElementById(form.dataset.chat + '-messages');
+
+      const userMessage = document.createElement('div');
+      userMessage.className = 'message user-message';
+      userMessage.textContent = text;
+      list.appendChild(userMessage);
+
+      const reply = document.createElement('div');
+      reply.className = 'message bot-message';
+
+      reply.textContent = form.dataset.chat === 'ai'
+        ? 'Mensagem recebida! Esta é uma prévia visual. Conecte a API da OpenAI no backend para gerar respostas inteligentes.'
+        : 'Mensagem recebida! Esta é uma prévia visual. Conecte o bot ao Discord para habilitar a conversa real.';
+
+      list.appendChild(reply);
+      input.value = '';
+      list.scrollTop = list.scrollHeight;
+    });
+  });
+
+  document.querySelectorAll('.quick').forEach(button => {
+    button.addEventListener('click', () => {
+      button.animate(
+        [{backgroundColor:'#69727d'},{backgroundColor:'#111820'}],
+        {duration:360}
+      );
+    });
+  });
+})();
+</script>
+</body>
+  </html>
+  
